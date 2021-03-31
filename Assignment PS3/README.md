@@ -1,7 +1,7 @@
 # MIT-Course-6.0001-Assignment-3
 MIT-Course-6.0001-Assignment-Problem Set 3 Word Game
 
-Knowlege: 
+Knowledge: 
 1. Use of Dictionary 
 2. Function
 

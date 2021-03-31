@@ -1,9 +1,9 @@
-
 # MIT-Course-6.0001-Assignment-Problem Set 4 
 
-### 4a - get permutation list of a string
+### 5 - monitor news feeds over the internet 
+
 Knowledge: 
-1. use of recursive. How to think recursively 
+1. use object-oriented programming - classes and inheritance 
 
 Learning Notes:
 1. Abstract. -> Use function to abstract the process
@@ -13,13 +13,4 @@ Learning Notes:
 To Improve:
 1. other implementations without using recursive. 
 2. difference of the two implementations? (recursive and non-recursive) benefits? sacrifice?
-
-
-### 4b - encrypt and decrypt message (simple shift)
-### 4c - encrypt and decrypt message (switch vowels)
-
-Knowlege: 
-1. use of class
-2. call functions in other code
-
 
