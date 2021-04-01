@@ -7,8 +7,7 @@
 #### Duration
 1. Video Lectures: 9 days (20/03/2021 - 28/03/2021)
 2. Assignments: 12 days (21/03/2021 - 1/4/2021)
-- Detailed timing can be found in the codes top comments section. 
-- I find it helpful to keep track of the learning progress
+- Detailed timing can be found in the codes top comments section. I find it helpful to keep track of the learning progress
 
 #### Knowledge
 1. Bisection search
