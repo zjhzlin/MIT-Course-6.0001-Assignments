@@ -1,0 +1,25 @@
+// debate trigger file - get news that is published within the +/- 3 hour window
+
+// title trigger named t1
+t1,TITLE,debate
+
+// description trigger named t2
+t2,DESCRIPTION,presidential
+
+// description trigger named t3
+t3,DESCRIPTION,debate
+
+// after trigger named t4
+t4,AFTER,19 Oct 2016 18:00:00
+
+// before trigger named t5
+t5,BEFORE,19 Oct 2016 23:59:59
+
+// composite trigger named t6
+t6,OR,t2,t3
+
+// composite trigger named t7
+t7,AND,t4,t5
+
+// the trigger list contains t1, t6, t7
+ADD,t1,t6,t7

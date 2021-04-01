@@ -2,15 +2,17 @@
 
 ### 5 - monitor news feeds over the internet 
 
+Goal: 
+Your program will filter the news, alerting the user when it notices a news story that matches that user's interests 
+
 Knowledge: 
 1. use object-oriented programming - classes and inheritance 
 
+Challenges:
+1. for each problem, lines of code under 15-20 lines
+
 Learning Notes:
-1. Abstract. -> Use function to abstract the process
-2. Learn from your own mistakes -> create bug database
-3. If you feel tired and sleepy, you shouldn't think about how to code :) morning session is more efficient. 
+1. Data Structure design
 
 To Improve:
-1. other implementations without using recursive. 
-2. difference of the two implementations? (recursive and non-recursive) benefits? sacrifice?
 
