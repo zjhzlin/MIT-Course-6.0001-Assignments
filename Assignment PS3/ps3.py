@@ -5,13 +5,16 @@
 #
 # Name          : Lynn ZHANG
 # Collaborators :
-# Time spent    : 198min
+# Time spent    : 198min + 15min = 213min (3.55h)
 # 23/03/2021: 61min = 15min + 6min + 5min + 10min + 25min
 # 24/03/2021: 137min
 #            3 07:36-39 - debugging updated is_invalid - make wildcard test success;
 #            42 07:55 - 08:37 problem 5
 #            32 08:38 - 09:10 problem 6 substitute hand func
 #            60 21:00 - 22:00 problem 6 done. with some issue with is_valid_word - solved - wrong order - need to find * first
+
+# 01/04/2021: 15min
+# 08:38 - 08:53 def is_valid_word update
 
 import math
 import random
@@ -250,21 +253,19 @@ def is_valid_word(word, hand, word_list):
     # no wildcard, search directly
     elif word_lower not in word_list:
         return False
+    # word in wordlist
     else:
-        return True
-
-    # FIXME previous code will never get here
-    # check whether the word is composed of letters in the hand
-    for letter in word_lower:
-        if letter not in updated_hand:
-            return False
-        else:
-            if updated_hand[letter] == 0:
+        # check whether the word is composed of letters in the hand
+        for letter in word_lower:
+            if letter not in updated_hand:
                 return False
             else:
-                updated_hand[letter] -= 1
+                if updated_hand[letter] == 0:
+                    return False
+                else:
+                    updated_hand[letter] -= 1
+        return True
 
-#
 # Problem #5: Playing a hand
 #
 def calculate_handlen(hand):
