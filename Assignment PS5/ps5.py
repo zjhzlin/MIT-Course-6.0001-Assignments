@@ -263,9 +263,7 @@ def filter_stories(stories, triggerlist):
 
     Returns: a list of only the stories for which a trigger in triggerlist fires.
     """
-    # TODO: Problem 10
-    # This is a placeholder
-    # (we're just returning all the stories, with no filtering)
+    # Problem 10
     stories_filtered = []
     for trigger in triggerlist:
         for story in stories:
@@ -331,9 +329,9 @@ def read_trigger_config(filename):
             for i in range(trigger_list_len):
                 trigger_list.append(trigger_dict[word_list[i+1]])
 
-    print(trigger_list)
-    print(trigger_dict)
-    print(lines)
+    # print(trigger_list)
+    # print(trigger_dict)
+    # print(lines)
     return trigger_list
 
 
