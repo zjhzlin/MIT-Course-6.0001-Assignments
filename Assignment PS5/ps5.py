@@ -1,7 +1,7 @@
 # 6.0001/6.00 Problem Set 5 - RSS Feed Filter
 # Name: Lynn Zhang
-# Collaborators:
-# Time: 241min (4h)
+# Collaborators: Tao Wu
+# Time: 241min (4h) + 32min
 # 2021-03-31 06:20 - 07:00 40min class problem 1 reading and realization
 # 2021-03-31 08:00 - 09:10 70min problem 2 & 3, stuck in class concept and class method debugging
 #                          some basic errors - list, variable manipulation
@@ -15,8 +15,9 @@
 # 2021-04-01 05:31 - 05:54 23min Problem 7,8,9
 #            05:55 - 06:55 60min Problem 10-12
 # unsolved: Polling...object has no attribute 'description'
+# 2021-04-01 21:00 - 21:30 Tao instruction - use the new version of feedparser online
+# 2021-04-02 05:54 - 05:56 modified the .txt and success!
 
-import feedparser
 import string
 import time
 import threading
@@ -24,7 +25,7 @@ from project_util import translate_html
 from mtTkinter import *
 from datetime import datetime
 import pytz
-
+import feedparser
 
 #-----------------------------------------------------------------------
 
@@ -39,7 +40,11 @@ def process(url):
     Fetches news items from the rss url and parses them.
     Returns a list of NewsStory-s.
     """
+    d = feedparser.parse('http://news.google.com/news?output=rss')
+    print(d.feed.title)
     feed = feedparser.parse(url)
+    # d = feedparser.parse('http://news.google.com/news?output=rss')
+    # d = feedparser.parse('http://news.google.com/news?output=rss')
     entries = feed.entries
     ret = []
     for entry in entries:
@@ -96,6 +101,7 @@ class NewsStory(object):
 #======================
 
 class Trigger(object):
+
     def evaluate(self, story):
         """
         Returns True if an alert should be generated
@@ -109,6 +115,7 @@ class Trigger(object):
 # Problem 2
 # subclass - PhraseTrigger
 class PhraseTrigger(Trigger):
+
     def __init__(self, phrase):
         self.phrase = phrase
 
@@ -221,7 +228,7 @@ class NotTrigger(Trigger):
         self.the_other_trigger = T
 
     def evaluate(self, story):
-        if self.the_other_trigger.evaluate(story) == True:
+        if self.the_other_trigger.evaluate(story):
             return False
         else:
             return True
@@ -267,13 +274,10 @@ def filter_stories(stories, triggerlist):
     stories_filtered = []
     for trigger in triggerlist:
         for story in stories:
-            if trigger.evaluate(story) == True:
+            if trigger.evaluate(story):
                 stories_filtered.append(story)
 
     return stories_filtered
-
-
-
 
 #======================
 # User-Specified Triggers
@@ -329,11 +333,10 @@ def read_trigger_config(filename):
             for i in range(trigger_list_len):
                 trigger_list.append(trigger_dict[word_list[i+1]])
 
-    # print(trigger_list)
-    # print(trigger_dict)
-    # print(lines)
+    print(trigger_list)
+    #print(trigger_dict)
+    #print(lines)
     return trigger_list
-
 
 SLEEPTIME = 120 #seconds -- how often we poll
 
@@ -384,7 +387,8 @@ def main_thread(master):
             stories = process("http://news.google.com/news?output=rss")
 
             # Get stories from Yahoo's Top Stories RSS news feed
-            stories.extend(process("http://news.yahoo.com/rss/topstories"))
+            # stories.extend(process("http://news.yahoo.com/rss/topstories"))
+            print(triggerlist)
 
             stories = filter_stories(stories, triggerlist)
 
