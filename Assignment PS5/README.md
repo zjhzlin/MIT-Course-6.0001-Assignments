@@ -16,13 +16,13 @@ filter the news, alerting the user when it notices a news story that matches tha
 1. Data Structure design
 2. Class concept and class method debugging
 3. Class - subclass - what attributes to put in __init__
-4. consider every situation - issues have caused by: not considering to put phrase to lower case; punctuation exceptions purple@#$%cow not considered
-5. how to set up timezone on datetime
+4. Consider every situation - issues have caused by: not considering to put phrase to lower case; punctuation exceptions purple@#$%cow not considered
+5. How to set up timezone on datetime
 
 #### To Solve - solved
 1. unsolved: Polling...object has no attribute 'description'
--> mainly due to the old implementation of feedparser.py. 
--> use their new version and updated the code 
+- -> mainly due to the old implementation of feedparser.py. 
+- -> use their new version and updated the code 
 
 #### Possible Further Development:
 1. Live auto feedparser - auto run feedparser that can push the user daily news that has met user's requirements
